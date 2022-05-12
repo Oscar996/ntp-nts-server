@@ -1,7 +1,10 @@
 #!/bin/bash
 cp /etc/ntpsec/ntp.conf /etc/ntpsec/ntp.conf.default
+echo "Copy ok" || echo "Deu ruim no copy"
 
 rm /etc/ntpsec/ntp.conf
+echo "RM ok" || echo "Deu ruim no RM"
+
 
 tee /etc/ntpsec/ntp.conf <<EOF
 # /etc/ntpsec/ntp.conf, configuration for ntpd; see ntp.conf(5) for help
@@ -65,3 +68,4 @@ restrict 127.0.0.1
 restrict ::1
 EOF
 
+echo "Tee OK" || echo "Deu ruim no Tee"

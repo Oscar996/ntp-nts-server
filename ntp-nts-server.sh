@@ -1,9 +1,15 @@
 #!/bin/bash
+
+apt update
+apt install ntpsec -y
+
+echo "ntpsec instalado com sucesso" || echo "Deu ruim na instalacao do ntpsec ¯\_(ツ)_/¯"
+
 cp /etc/ntpsec/ntp.conf /etc/ntpsec/ntp.conf.default
-echo "Copy ok" || echo "Deu ruim no copy"
+echo "Copy ok" || echo "Deu ruim no copy ¯\_(ツ)_/¯"
 
 rm /etc/ntpsec/ntp.conf
-echo "RM ok" || echo "Deu ruim no RM"
+echo "RM ok" || echo "Deu ruim no RM ¯\_(ツ)_/¯"
 
 
 tee /etc/ntpsec/ntp.conf <<EOF
@@ -68,4 +74,7 @@ restrict 127.0.0.1
 restrict ::1
 EOF
 
-echo "Tee OK" || echo "Deu ruim no Tee"
+echo "Tee OK" || echo "Deu ruim no Tee ¯\_(ツ)_/¯"
+
+echo "Tudo certo meu patrão. Pode rodar na rede que deu bom."
+echo "<(￣︶￣)>"

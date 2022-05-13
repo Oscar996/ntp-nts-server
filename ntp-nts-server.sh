@@ -73,10 +73,13 @@ echo "Tee OK" || echo "Deu ruim no Tee ¯\_(ツ)_/¯"
 systemctl restart ntpsec
 echo "ntpsec reiniciado" || echo "falha ao reiniciar ntpsec ¯\_(ツ)_/¯"
 
+echo "So far so good."
 sleep 2
 
 #Verificar status dos servers NTP
 ntpq -c rl
+echo "NTP/NTS Servers OK" || echo "Deu ruim ao consultar os ntp servers ¯\_(ツ)_/¯"
+
 
 echo "Wait for it"
 sleep 6
@@ -85,7 +88,7 @@ sleep 6
 
 echo "Check this out"
 
-#Verificar status dos servers NTP
+#Exibir sincronizacao dos ntp servers
 ntpq -p
 
 echo "Rodando liso" || echo "Deu ruim ao sincronizar com os ntp servers ¯\_(ツ)_/¯"

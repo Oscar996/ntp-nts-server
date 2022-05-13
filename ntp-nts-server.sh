@@ -73,6 +73,8 @@ echo "Tee OK" || echo "Deu ruim no Tee ¯\_(ツ)_/¯"
 systemctl restart ntpsec
 echo "ntpsec reiniciado" || echo "falha ao reiniciar ntpsec ¯\_(ツ)_/¯"
 
+sleep 2
+
 #Verificar status dos servers NTP
 ntpq -c rl
 

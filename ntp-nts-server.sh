@@ -82,12 +82,16 @@ echo "Tee OK" || echo "Deu ruim no Tee ¯\_(ツ)_/¯"
 #Reinicar serviço NTP
 systemctl restart ntpsec
 
+echo "Wait for it""
+sleep 3
+echo "Wait for it!"
 sleep 5
 
 echo "Check this out!"
 
 #Verificar status dos servers NTP
 ntpq -p
+
 echo "Rodando liso" || echo "Deu ruim ao sincronizar com os ntp servers ¯\_(ツ)_/¯"
 echo "Tudo certo meu patrão. Pode rodar na rede que deu bom."
 echo "<(￣︶￣)>"

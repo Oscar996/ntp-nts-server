@@ -82,6 +82,8 @@ echo "Tee OK" || echo "Deu ruim no Tee ¯\_(ツ)_/¯"
 #Reinicar serviço NTP
 systemctl restart ntpsec
 
+sleep 5
+
 echo "Check this out!"
 
 #Verificar status dos servers NTP

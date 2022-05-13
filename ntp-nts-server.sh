@@ -1,4 +1,5 @@
 #!/bin/bash
+#Script gerado por Oscar Santos em nome da K3G Solutions.
 #Instalar ntpsec
 apt update
 apt install ntpsec -y
@@ -72,14 +73,13 @@ echo "Tee OK" || echo "Deu ruim no Tee ¯\_(ツ)_/¯"
 #Reinicar serviço NTP
 systemctl restart ntpsec
 echo "ntpsec reiniciado" || echo "falha ao reiniciar ntpsec ¯\_(ツ)_/¯"
-echo "So far so good."
 sleep 2
 
 #Verificar status dos servers NTP
 ntpq -c rl
 echo "NTP/NTS Servers OK" || echo "Deu ruim ao consultar os ntp servers ¯\_(ツ)_/¯"
 echo "------------"
-echo "so far so good."
+echo "So far so good!"
 echo "Wait for it"
 sleep 6
 echo "Wait for it!"

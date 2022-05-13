@@ -81,8 +81,10 @@ echo "Tee OK" || echo "Deu ruim no Tee ¯\_(ツ)_/¯"
 
 #Reinicar serviço NTP
 systemctl restart ntpsec
+echo "ntpsec reiniciado" || echo "falha ao reiniciar ntpsec ¯\_(ツ)_/¯"
 
-echo "Wait for it""
+
+echo "Wait for it!"
 sleep 3
 echo "Wait for it!"
 sleep 5

@@ -76,7 +76,7 @@ echo "ntpsec reiniciado" || echo "falha ao reiniciar ntpsec ¯\_(ツ)_/¯"
 echo "Wait for it"
 sleep 3
 echo "Wait for it!"
-sleep 3
+sleep 5
 
 echo "Check this out"
 

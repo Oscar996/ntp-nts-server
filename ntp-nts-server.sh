@@ -74,7 +74,7 @@ systemctl restart ntpsec
 echo "ntpsec reiniciado" || echo "falha ao reiniciar ntpsec ¯\_(ツ)_/¯"
 
 echo "Wait for it"
-sleep 5
+sleep 6
 echo "Wait for it!"
 sleep 6
 

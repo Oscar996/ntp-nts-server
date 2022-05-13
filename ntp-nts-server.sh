@@ -1,20 +1,24 @@
 #!/bin/bash
-
+#Instalar ntpsec
 apt update
 apt install ntpsec -y
-
 echo "ntpsec instalado com sucesso" || echo "Deu ruim na instalacao do ntpsec ¯\_(ツ)_/¯"
 
+#Copiar as configuracoes padrao 
 cp /etc/ntpsec/ntp.conf /etc/ntpsec/ntp.conf.default
 echo "Copy ok" || echo "Deu ruim no copy ¯\_(ツ)_/¯"
 
+#Remove o arquivo de configuracao (Relaxa, vai ter um novo)
 rm /etc/ntpsec/ntp.conf
 echo "RM ok" || echo "Deu ruim no RM ¯\_(ツ)_/¯"
 
+#Criar um novo arquivo de configuracao
+mkdir /var/log/ntpsec
+echo "Diretorio de logs OK" || echo "Deu ruim na criacao do diretorio de logs ¯\_(ツ)_/¯"
 
+#Configuraoes do ntpsec
 tee /etc/ntpsec/ntp.conf <<EOF
 # /etc/ntpsec/ntp.conf, configuration for ntpd; see ntp.conf(5) for help
-
 driftfile /var/lib/ntpsec/ntp.drift
 leapfile /usr/share/zoneinfo/leap-seconds.list
 
@@ -25,11 +29,11 @@ leapfile /usr/share/zoneinfo/leap-seconds.list
 # nts enable
 
 # You must create /var/log/ntpsec (owned by ntpsec:ntpsec) to enable logging.
-#statsdir /var/log/ntpsec/
-#statistics loopstats peerstats clockstats
-#filegen loopstats file loopstats type day enable
-#filegen peerstats file peerstats type day enable
-#filegen clockstats file clockstats type day enable
+statsdir /var/log/ntpsec/
+statistics loopstats peerstats clockstats
+filegen loopstats file loopstats type day enable
+filegen peerstats file peerstats type day enable
+filegen clockstats file clockstats type day enable
 
 # This should be maxclock 7, but the pool entries count towards maxclock.
 tos maxclock 11
@@ -57,7 +61,6 @@ server nts.netnod.se iburst nts
 #pool 2.debian.pool.ntp.org iburst
 #pool 3.debian.pool.ntp.org iburst
 
-
 # Access control configuration; see /usr/share/doc/ntpsec-doc/html/accopt.html
 # for details.
 #
@@ -76,5 +79,14 @@ EOF
 
 echo "Tee OK" || echo "Deu ruim no Tee ¯\_(ツ)_/¯"
 
+#Reinicar serviço NTP
+systemctl restart ntpsec
+
+echo "Check this out!"
+
+#Verificar status dos servers NTP
+ntpq -p
+echo "Rodando liso" || echo "Deu ruim ao sincronizar com os ntp servers ¯\_(ツ)_/¯"
 echo "Tudo certo meu patrão. Pode rodar na rede que deu bom."
 echo "<(￣︶￣)>"
+

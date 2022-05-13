@@ -85,7 +85,7 @@ sleep 6
 echo "Wait for it!"
 sleep 6
 echo "Check this out!"
-
+sleep 1
 #Exibir sincronizacao dos ntp servers
 ntpq -p
 
